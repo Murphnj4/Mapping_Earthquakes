@@ -107,8 +107,11 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
   // Then we add the earthquake layer to our map.
   allEarthquakes.addTo(map);
-
   d3.json(queryUrl, function (data) {
+  // 3. Retrieve the major earthquake GeoJSON data >4.5 mag for the week.
+  d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
+
+    
 // 4. Use the same style as the earthquake data.
 function styleInfo(feature) {
   return {
